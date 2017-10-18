@@ -1,0 +1,710 @@
+
+Acc: 0.926 Using color RGB orient:2 pix_per_cell:4 cell_per_block:1 hog_channel:0 time: 21.62
+Acc: 0.9333 Using color RGB orient:2 pix_per_cell:4 cell_per_block:1 hog_channel:1 time: 20.16
+Acc: 0.9282 Using color RGB orient:2 pix_per_cell:4 cell_per_block:1 hog_channel:2 time: 22.79
+Acc: 0.9248 Using color RGB orient:2 pix_per_cell:4 cell_per_block:1 hog_channel:ALL time: 24.64
+Acc: 0.9234 Using color RGB orient:2 pix_per_cell:4 cell_per_block:2 hog_channel:0 time: 19.02
+Acc: 0.942 Using color RGB orient:2 pix_per_cell:4 cell_per_block:2 hog_channel:1 time: 18.13
+Acc: 0.9389 Using color RGB orient:2 pix_per_cell:4 cell_per_block:2 hog_channel:2 time: 19.6
+Acc: 0.9386 Using color RGB orient:2 pix_per_cell:4 cell_per_block:2 hog_channel:ALL time: 47.07
+Acc: 0.9496 Using color RGB orient:2 pix_per_cell:4 cell_per_block:3 hog_channel:0 time: 31.82
+Acc: 0.9502 Using color RGB orient:2 pix_per_cell:4 cell_per_block:3 hog_channel:1 time: 29.11
+Acc: 0.9454 Using color RGB orient:2 pix_per_cell:4 cell_per_block:3 hog_channel:2 time: 29.04
+Acc: 0.9443 Using color RGB orient:2 pix_per_cell:4 cell_per_block:3 hog_channel:ALL time: 91.47
+Acc: 0.9296 Using color RGB orient:2 pix_per_cell:8 cell_per_block:1 hog_channel:0 time: 17.55
+Acc: 0.9324 Using color RGB orient:2 pix_per_cell:8 cell_per_block:1 hog_channel:1 time: 17.35
+Acc: 0.9338 Using color RGB orient:2 pix_per_cell:8 cell_per_block:1 hog_channel:2 time: 18.53
+Acc: 0.9327 Using color RGB orient:2 pix_per_cell:8 cell_per_block:1 hog_channel:ALL time: 18.68
+Acc: 0.942 Using color RGB orient:2 pix_per_cell:8 cell_per_block:2 hog_channel:0 time: 14.53
+Acc: 0.9398 Using color RGB orient:2 pix_per_cell:8 cell_per_block:2 hog_channel:1 time: 12.59
+Acc: 0.9431 Using color RGB orient:2 pix_per_cell:8 cell_per_block:2 hog_channel:2 time: 13.1
+Acc: 0.9507 Using color RGB orient:2 pix_per_cell:8 cell_per_block:2 hog_channel:ALL time: 14.35
+Acc: 0.9476 Using color RGB orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 14.11
+Acc: 0.9521 Using color RGB orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 12.52
+Acc: 0.9507 Using color RGB orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 13.67
+Acc: 0.955 Using color RGB orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 18.29
+Acc: 0.9389 Using color RGB orient:2 pix_per_cell:16 cell_per_block:1 hog_channel:0 time: 17.71
+Acc: 0.9395 Using color RGB orient:2 pix_per_cell:16 cell_per_block:1 hog_channel:1 time: 16.98
+Acc: 0.9372 Using color RGB orient:2 pix_per_cell:16 cell_per_block:1 hog_channel:2 time: 18.08
+Acc: 0.9454 Using color RGB orient:2 pix_per_cell:16 cell_per_block:1 hog_channel:ALL time: 17.87
+Acc: 0.9358 Using color RGB orient:2 pix_per_cell:16 cell_per_block:2 hog_channel:0 time: 16.0
+Acc: 0.942 Using color RGB orient:2 pix_per_cell:16 cell_per_block:2 hog_channel:1 time: 14.55
+Acc: 0.9375 Using color RGB orient:2 pix_per_cell:16 cell_per_block:2 hog_channel:2 time: 14.81
+Acc: 0.9459 Using color RGB orient:2 pix_per_cell:16 cell_per_block:2 hog_channel:ALL time: 14.35
+Acc: 0.9409 Using color RGB orient:2 pix_per_cell:16 cell_per_block:3 hog_channel:0 time: 17.19
+Acc: 0.94 Using color RGB orient:2 pix_per_cell:16 cell_per_block:3 hog_channel:1 time: 16.61
+Acc: 0.9257 Using color RGB orient:2 pix_per_cell:16 cell_per_block:3 hog_channel:2 time: 15.8
+Acc: 0.9322 Using color RGB orient:2 pix_per_cell:16 cell_per_block:3 hog_channel:ALL time: 15.81
+
+^CTraceback (most recent call last):
+  File "test.py", line 170, in <module>
+    svc.fit(X_train, y_train)
+  File "/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/svm/classes.py", line 215, in fit
+    self.loss, sample_weight=sample_weight)
+  File "/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/svm/base.py", line 912, in _fit_liblinear
+    epsilon, sample_weight)
+KeyboardInterrupt
+>>>
+>>> for color_space in ['YCrCb', 'RGB', 'HSV', 'LUV','HLS', 'YUV']:
+...     for orient in [2,4,5,9,13]:
+...         for pix_per_cell in [8]:#[4,8,16]:
+...             for cell_per_block in [3]:#[1,2,3]:
+...                 for hog_channel in [0,1,2,'ALL']:
+...                     car_features = extract_features(cars, color_space=color_space,
+...                                                     spatial_size=spatial_size, hist_bins=hist_bins,
+...                                                     orient=orient, pix_per_cell=pix_per_cell,
+...                                                     cell_per_block=cell_per_block,
+...                                                     hog_channel=hog_channel, spatial_feat=spatial_feat,
+...                                                     hist_feat=hist_feat, hog_feat=hog_feat)
+...                     notcar_features = extract_features(notcars, color_space=color_space,
+...                                                        spatial_size=spatial_size, hist_bins=hist_bins,
+...                                                        orient=orient, pix_per_cell=pix_per_cell,
+...                                                        cell_per_block=cell_per_block,
+...                                                        hog_channel=hog_channel, spatial_feat=spatial_feat,
+...                                                        hist_feat=hist_feat, hog_feat=hog_feat)
+...                     X = np.vstack((car_features, notcar_features)).astype(np.float64)
+...                     # Fit a per-column scaler
+...                     X_scaler = StandardScaler().fit(X)
+...                     # Apply the scaler to X
+...                     scaled_X = X_scaler.transform(X)
+...                     # Define the labels vector
+...                     y = np.hstack((np.ones(len(car_features)), np.zeros(len(notcar_features))))
+...                     # Split up data into randomized training and test sets
+...                     rand_state = np.random.randint(0, 100)
+...                     X_train, X_test, y_train, y_test = train_test_split(
+...                         scaled_X, y, test_size=0.2, random_state=rand_state)
+...                     # print('Using:', orient, 'orientations', pix_per_cell,
+...                     #       'pixels per cell and', cell_per_block, 'cells per block')
+...                     # print('Feature vector length:', len(X_train[0]))
+...                     # Use a linear SVC
+...                     svc = LinearSVC()
+...                     # Check the training time for the SVC
+...                     t = time.time()
+...                     svc.fit(X_train, y_train)
+...                     t2 = time.time()
+...                     tt = round(t2 - t, 2)
+...                     # print(round(t2 - t, 2), 'Seconds to train SVC...')
+...                     # Check the score of the SVC
+...                     print('Acc: %s Using color %s orient:%s pix_per_cell:%s cell_per_block:%s hog_channel:%s time: %s'%(round(svc.score(X_test, y_test), 4), color_space, orient, pix_per_cell, cell_per_block, hog_channel, tt))
+...
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9459 Using color YCrCb orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 9.28
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.935 Using color YCrCb orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 11.91
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9434 Using color YCrCb orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 15.58
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9609 Using color YCrCb orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 13.35
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9668 Using color YCrCb orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 8.98
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9566 Using color YCrCb orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 11.28
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.949 Using color YCrCb orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 12.47
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9851 Using color YCrCb orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 15.27
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9721 Using color YCrCb orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 8.63
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9583 Using color YCrCb orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 11.87
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9527 Using color YCrCb orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 13.62
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9854 Using color YCrCb orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 16.99
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9783 Using color YCrCb orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 12.63
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9634 Using color YCrCb orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 17.43
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9535 Using color YCrCb orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 18.81
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9913 Using color YCrCb orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 32.07
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9761 Using color YCrCb orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 18.2
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9637 Using color YCrCb orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 21.83
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9513 Using color YCrCb orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 24.83
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9842 Using color YCrCb orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 9.13
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9445 Using color RGB orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 14.32
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9428 Using color RGB orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 12.4
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9513 Using color RGB orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 12.81
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9527 Using color RGB orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 18.19
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9611 Using color RGB orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 10.43
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.962 Using color RGB orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 9.46
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9665 Using color RGB orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 9.68
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9724 Using color RGB orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 21.72
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9654 Using color RGB orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 10.01
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9699 Using color RGB orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 8.78
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9665 Using color RGB orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 9.1
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9718 Using color RGB orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 21.42
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9682 Using color RGB orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 14.8
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.973 Using color RGB orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 13.8
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9724 Using color RGB orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 14.09
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9766 Using color RGB orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 39.97
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9665 Using color RGB orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 20.9
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9724 Using color RGB orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 19.21
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9704 Using color RGB orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 19.41
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9772 Using color RGB orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 68.88
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9364 Using color HSV orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 11.59
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.931 Using color HSV orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 13.78
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.94 Using color HSV orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 9.16
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9642 Using color HSV orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 12.42
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9533 Using color HSV orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 10.2
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9426 Using color HSV orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 11.3
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.973 Using color HSV orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 7.61
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9828 Using color HSV orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 16.24
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9533 Using color HSV orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 11.72
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9541 Using color HSV orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 12.91
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9766 Using color HSV orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 7.34
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9831 Using color HSV orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 17.81
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9626 Using color HSV orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 17.08
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9561 Using color HSV orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 17.52
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.982 Using color HSV orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 12.04
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9873 Using color HSV orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 42.65
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9603 Using color HSV orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 24.99
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.955 Using color HSV orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 24.9
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9823 Using color HSV orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 17.84
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9882 Using color HSV orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 8.58
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9552 Using color LUV orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 7.56
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:144: RuntimeWarning: invalid value encountered in sqrt
+  image = np.sqrt(image)
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+  File "/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/preprocessing/data.py", line 560, in fit
+    return self.partial_fit(X, y)
+  File "/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/preprocessing/data.py", line 583, in partial_fit
+    estimator=self, dtype=FLOAT_DTYPES)
+  File "/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/utils/validation.py", line 58, in _assert_all_finite
+    " or a value too large for %r." % X.dtype)
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.96 Using color LUV orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 8.24
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:144: RuntimeWarning: invalid value encountered in sqrt
+  image = np.sqrt(image)
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+  File "/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/preprocessing/data.py", line 560, in fit
+    return self.partial_fit(X, y)
+  File "/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/preprocessing/data.py", line 583, in partial_fit
+    estimator=self, dtype=FLOAT_DTYPES)
+  File "/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/utils/validation.py", line 407, in check_array
+    _assert_all_finite(array)
+  File "/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/sklearn/utils/validation.py", line 58, in _assert_all
+
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9285 Using color HLS orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 12.76
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9431 Using color HLS orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 8.97
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9291 Using color HLS orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 16.85
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9606 Using color HLS orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 13.3
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9428 Using color HLS orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 11.47
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9668 Using color HLS orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 7.47
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9471 Using color HLS orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 13.29
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9831 Using color HLS orient:4 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 16.31
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9485 Using color HLS orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 12.72
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9811 Using color HLS orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 8.01
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9358 Using color HLS orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 14.14
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.984 Using color HLS orient:5 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 18.28
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9561 Using color HLS orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 18.61
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9794 Using color HLS orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 12.29
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9468 Using color HLS orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 19.4
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9876 Using color HLS orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:ALL time: 7.01
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9527 Using color HLS orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 25.28
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9764 Using color HLS orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 16.94
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9412 Using color HLS orient:13 pix_per_cell:8 cell_per_block:3 hog_channel:2 time: 27.67
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+Traceback (most recent call last):
+  File "<stdin>", line 18, in <module>
+  File "/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/numpy/core/shape_base.py", line 234, in vstack
+    return _nx.concatenate([atleast_2d(_m) for _m in tup], 0)
+
+    /home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9451 Using color YUV orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:0 time: 10.15
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     verbose=0)
+Acc: 0.9386 Using color YUV orient:2 pix_per_cell:8 cell_per_block:3 hog_channel:1 time: 12.7
+/home/carnd/anaconda3/envs/carnd-term1/lib/python3.5/site-packages/skimage/feature/_hog.py:119: skimage_deprecation: Default value of `block_norm`==`L1` is deprecated and will be changed to `L2-Hys` in v0.15
+  'be changed to `L2-Hys` in v0.15', skimage_deprecation)
+Acc: 0.984 Using color YCrCb orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:ALL hog True, hist True, spatial True time: 30.38
+Acc: 0.9834 Using color YCrCb orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:ALL hog True, hist True, spatial False time: 33.37
+Acc: 0.9887 Using color YCrCb orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:ALL hog True, hist False, spatial True time: 14.03
+Acc: 0.9811 Using color YCrCb orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:ALL hog True, hist False, spatial False time: 16.87
+Acc: 0.9119 Using color YCrCb orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:ALL hog False, hist True, spatial True time: 14.86
+Acc: 0.5048 Using color YCrCb orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:ALL hog False, hist True, spatial False time: 0.02
+Acc: 0.9358 Using color YCrCb orient:9 pix_per_cell:8 cell_per_block:3 hog_channel:ALL hog False, hist False, spatial True time: 15.09
