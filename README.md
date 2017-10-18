@@ -1,5 +1,3 @@
----
-
 # **Vehicle Detection Project**
 
 The goals / steps of this project are the following:
@@ -31,11 +29,12 @@ The goals / steps of this project are the following:
 [video1]: ./project_video.mp4
 
 ---
-###Writeup / README
+
+### Writeup / README
 
 This document is walk through of solution approach and findings in implementing the solution. 
 
-###Histogram of Oriented Gradients (HOG)
+### Histogram of Oriented Gradients (HOG)
 
 1. If you consider a small segment of image and see the gradient among adjacent pixels in different directions we can observe variation according to the direction of line in that segment. Here general idea is to club them into histogram so that we can represent the direction in fixed number of bins.  Once we get the magnitude of each bin, highest value will represent the edge of object in this segment. We are going to use this as feature as this encodes shapes well, As it is histogram of gradients in different directions they are called HOG (histogram of oriented gradients)
 
@@ -54,7 +53,7 @@ Here is an example using the `YCrCb` color space and HOG parameters of `orientat
 
 ![alt text][image2]
 
-####2. Trying different parameters for best hog features.
+#### 2. Trying different parameters for best hog features.
 
 I tried variations in `number of bins` and `pixels per cell` to see which combination give a good shape
  representation of the image. Below are some of the examples for sample image in hog visualization. This was using grayscale version of the image.
@@ -81,15 +80,15 @@ and
 
 After comparison of various combinations, I found hog on all channel would yield a better result. 
 
-####3. Training the classifier.
+#### 3. Training the classifier.
 
 I trained a linear SVM using scikit framework, first loaded all images of cars and non-car (roughly similar sample size). 
 Then split them into test and train set using `train_test_split` with different parameters compared the accuracy of the model 
 
 
-###Sliding Window Search
+### Sliding Window Search
 
-####1. Sliding window search.
+#### 1. Sliding window search.
 As the car can appear anywhere inside or front, we need to search the image a tile by tile. This technique is referred as 
 sliding window. However while doing that a tile may cover the half car which may lead to miss that car detection. So use
  of overlapping sliding window would resolve the problem. 
@@ -104,7 +103,7 @@ Visualization of the sliding window.
 After experimenting with multiple window sizes I decided to use scale factor of 1.5 (96x96) and 1.2 (76x76)
 
 
-####2. Optimizing the classifier
+#### 2. Optimizing the classifier
 
 I did an exhaustive search for optimal parameters in feature selection. Below is various options searched for:
 
@@ -147,11 +146,11 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 
 ### Video Implementation
 
-####1. Video output
+#### 1. Video output
 Here's a [link to Youtube video](https://www.youtube.com/watch?v=75pMA4K6c6c)
 
 
-####2. Pipeline
+#### 2. Pipeline
 * In order to avoid false positives I had to use multi window scan and use threshold for actual car detection. There are some dark area 
 detected as car however after taking heatmap of multiple window detection I could avoid detecting wrong area as car.
 * Also I used confidence level for the car as a function of past detections and how many overlapping windows detected.
@@ -220,7 +219,7 @@ So here is the image with annotated intermediate findings and final car detected
 
 ---
 
-###Discussion
+### Discussion
 
 #### Challenges and learnings:
 * One of the problems I faced while detecting cars in the video was in one of the frame car was not being detected with high confidence. I had to use the concept of history with confidence score attached to the car detected.
